@@ -9,7 +9,7 @@ ENV PATH   $PATH:$PSPDEV/bin:$PSPSDK/bin
 WORKDIR /
 
 RUN apt update \
-    && apt install -y build-essential cmake pkgconf libreadline8 libusb-0.1 libgpgme11 libarchive-tools fakeroot wget  \
+    && apt install -y build-essential cmake pkgconf libreadline8 libusb-1.0-0 libgpgme11 libarchive-tools fakeroot wget  \
     && apt clean \
     && wget https://github.com/pspdev/pspdev/releases/download/latest/pspdev-ubuntu-latest.tar.gz \
     && tar xfv pspdev-ubuntu-latest.tar.gz \
