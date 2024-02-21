@@ -25,8 +25,24 @@ jobs:
           - linux/ppc64le
           - linux/s390x  
     steps:
+
+      - name: Set variable
+        id: set_variable
+        run: echo "::set-output name=DOCKERHUB_REPONAME::pspdev-sdl2"
+
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: README to Dockerhub
+        uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASS: ${{ secrets.DOCKERHUB_TOKEN }}
+        with:
+          destination_container_repo: ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.set_variable.outputs.DOCKERHUB_REPONAME }}
+          provider: dockerhub
+          short_description: 'A Docker Image for PSP Development with SDL2'
+          readme_file: 'README.md'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -46,4 +62,4 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pspdev-sdl2:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}//${{ steps.set_variable.outputs.DOCKERHUB_REPONAME }}:latest
