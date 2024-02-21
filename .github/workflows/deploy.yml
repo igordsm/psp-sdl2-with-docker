@@ -25,6 +25,9 @@ jobs:
           - linux/arm/v7
           - linux/arm64    
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
