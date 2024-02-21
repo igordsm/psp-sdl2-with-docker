@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ubuntu:24.04
+FROM ubuntu:24.04
 
 # Based on github.com/ticky/docker-pspdev
 
