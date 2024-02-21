@@ -24,11 +24,9 @@ jobs:
           - linux/arm64/v8
           - linux/ppc64le
           - linux/s390x  
+    env:
+      DOCKERHUB_REPONAME: pspdev-sdl2          
     steps:
-
-      - name: Set variable
-        id: set_variable
-        run: echo "::set-output name=DOCKERHUB_REPONAME::pspdev-sdl2"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +37,7 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASS: ${{ secrets.DOCKERHUB_TOKEN }}
         with:
-          destination_container_repo: ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.set_variable.outputs.DOCKERHUB_REPONAME }}
+          destination_container_repo: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPONAME }}
           provider: dockerhub
           short_description: 'A Docker Image for PSP Development with SDL2'
           readme_file: 'README.md'
@@ -62,4 +60,4 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.set_variable.outputs.DOCKERHUB_REPONAME }}:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPONAME }}:latest
