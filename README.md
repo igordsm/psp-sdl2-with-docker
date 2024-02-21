@@ -4,7 +4,7 @@
 
 This uses docker to automate the setup of [pspdev toolchain](https://pspdev.github.io/). A prebuilt version of the image exists at `hldtux/pspdev-sdl2:latest`, but it can also be ran locally with the following commands. 
 
-# A Docker Image for PS3 Development
+# A Docker Image for PSP Development
 
 [![](https://images.microbadger.com/badges/image/hldtux/pspdev-sdl2.svg)](https://microbadger.com/images/hldtux/pspdev-sdl2)
 [![](https://img.shields.io/docker/pulls/hldtux/pspdev-sdl2.svg?maxAge=604800)](https://hub.docker.com/r/hldtux/pspdev-sdl2/)
