@@ -1,3 +1,5 @@
+[![ci-docker](https://github.com/humbertodias/docker-pspdev-sdl2/actions/workflows/deploy.yml/badge.svg)](https://github.com/humbertodias/docker-pspdev-sdl2/actions/workflows/deploy.yml)
+
 # Simple example to compile PSP apps using SDL2
 
 This uses docker to automate the setup of [pspdev toolchain](https://pspdev.github.io/). A prebuilt version of the image exists at `igormontagner/pspdev:latest`, but it can also be ran locally with the following commands. 
