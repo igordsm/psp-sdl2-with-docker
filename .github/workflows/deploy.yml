@@ -25,7 +25,9 @@ jobs:
           - linux/ppc64le
           - linux/s390x  
     env:
-      DOCKERHUB_REPONAME: pspdev-sdl2          
+      DOCKERHUB_REPONAME: pspdev-sdl2
+      DOCKERHUB_REPOTAG: latest
+                
     steps:
 
       - name: Checkout
@@ -60,4 +62,4 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPONAME }}:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPONAME }}:${{ env.DOCKERHUB_REPOTAG }}
