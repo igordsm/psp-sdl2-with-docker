@@ -15,7 +15,15 @@ jobs:
   dockerhub-push:
     runs-on: ubuntu-latest
     environment: DockerHub
-    
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/386
+          - linux/arm/v6
+          - linux/arm/v7
+          - linux/arm64    
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -32,5 +40,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v5
         with:
+          context: .
+          platforms: ${{ matrix.platform }}
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pspdev-sdl2:latest
