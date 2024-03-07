@@ -10,8 +10,14 @@ This uses docker to automate the setup of [pspdev toolchain](https://pspdev.gith
 [![](https://img.shields.io/docker/pulls/hldtux/pspdev-sdl2.svg?maxAge=604800)](https://hub.docker.com/r/hldtux/pspdev-sdl2/)
 
 ```shell
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 docker build -t psp:local .
 docker run -it --rm -v $PWD:/src/ psp:local
+```
+
+or from dockerhub
+```sh
+docker run -it --rm -v $PWD:/src/ hldtux/pspdev
 ```
 
 This drops into a terminal inside the container. Run 
@@ -21,6 +27,8 @@ mkdir build && cd build
 psp-cmake ..
 make
 ```
+
+
 
 to create the `EBOOT.PBP` file. TO run this on a PSP copy it to a folder inside `/GAME`.
 
