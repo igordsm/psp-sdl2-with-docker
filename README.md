@@ -17,6 +17,7 @@ docker run -it --rm -v $PWD:/src/ psp:local
 
 or from dockerhub
 ```sh
+DOCKER_DEFAULT_PLATFORM=linux/amd64 \
 docker run -it --rm -v $PWD:/src/ hldtux/pspdev
 ```
 
@@ -27,8 +28,6 @@ mkdir build && cd build
 psp-cmake ..
 make
 ```
-
-
 
 to create the `EBOOT.PBP` file. TO run this on a PSP copy it to a folder inside `/GAME`.
 
