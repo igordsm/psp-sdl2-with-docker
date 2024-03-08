@@ -18,7 +18,7 @@ docker run -it --rm -v $PWD:/src/ psp:local
 or from dockerhub
 ```sh
 DOCKER_DEFAULT_PLATFORM=linux/amd64 \
-docker run -it --rm -v $PWD:/src/ hldtux/pspdev
+docker run -it --rm -v $PWD:/src/ hldtux/pspdev-sdl2
 ```
 
 This drops into a terminal inside the container. Run 
