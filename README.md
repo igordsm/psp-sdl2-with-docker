@@ -1,15 +1,29 @@
+[![ci-docker](https://github.com/humbertodias/docker-pspdev-sdl2/actions/workflows/deploy.yml/badge.svg)](https://github.com/humbertodias/docker-pspdev-sdl2/actions/workflows/deploy.yml)
+
 # Simple example to compile PSP apps using SDL2
 
-This uses docker to automate the setup of [pspdev toolchain](https://pspdev.github.io/). A prebuilt version of the image exists at `igormontagner/pspdev:latest`, but it can also be ran locally with the following commands. 
+This uses docker to automate the setup of [pspdev toolchain](https://pspdev.github.io/). A prebuilt version of the image exists at `hldtux/pspdev-sdl2:latest`, but it can also be ran locally with the following commands. 
 
-```
+# A Docker Image for PSP Development
+
+[![](https://images.microbadger.com/badges/image/hldtux/pspdev-sdl2.svg)](https://microbadger.com/images/hldtux/pspdev-sdl2)
+[![](https://img.shields.io/docker/pulls/hldtux/pspdev-sdl2.svg?maxAge=604800)](https://hub.docker.com/r/hldtux/pspdev-sdl2/)
+
+```shell
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 docker build -t psp:local .
 docker run -it --rm -v $PWD:/src/ psp:local
 ```
 
+or from dockerhub
+```sh
+DOCKER_DEFAULT_PLATFORM=linux/amd64 \
+docker run -it --rm -v $PWD:/src/ hldtux/pspdev-sdl2
+```
+
 This drops into a terminal inside the container. Run 
 
-```
+```shell
 mkdir build && cd build
 psp-cmake ..
 make
